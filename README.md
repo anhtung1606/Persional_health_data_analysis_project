@@ -2,160 +2,220 @@
 [PERSONAL HEALTH DATA ANALYSIS PROJECT](./PERSONAL%20HEALTH%20DATA%20ANALYSIS%20PROJECT%20.pdf)
 # 📊 Dự Án Phân Tích Dữ Liệu Sức Khỏe Cá Nhân
 
-## 🧭 Tổng Quan (Overview)
+##  1 Tổng Quan (Overview)
 
 <img width="507" height="409" alt="Ảnh màn hình 2026-02-15 lúc 18 05 01" src="https://github.com/user-attachments/assets/0098e5b1-cb39-4d8a-aadc-2c9bd7ee24c8" />
 
+Đây là một **Personal Health Data Case Study** được thực hiện nhằm phân tích xu hướng vận động và sức khỏe cá nhân trong dài hạn (2021–2025).
 
-Đây là dự án phân tích dữ liệu sức khỏe cá nhân được thu thập từ điện thoại và thiết bị đeo thông minh.
+Dự án mô phỏng đầy đủ quy trình làm việc của một Data Analyst:
 
-Mục tiêu của dự án là mô phỏng **quy trình làm việc thực tế của một Data Analyst**, bao gồm:
+* Xác định câu hỏi phân tích từ dữ liệu
+* Trích xuất dữ liệu thô từ thiết bị cá nhân
+* Làm sạch và phân tích bằng R
+* Lưu trữ và truy vấn bằng MySQL
+* Xây dựng Dashboard trực quan bằng Excel
+* Công khai dự án trên GitHub
 
-* Xuất dữ liệu thô (XML) từ điện thoại
-* Làm sạch và xử lý dữ liệu bằng R
-* Lưu trữ và truy vấn dữ liệu bằng MySQL
-* Xây dựng Dashboard tổng quan bằng Excel
-* Triển khai và trình bày dự án trên GitHub
+Mục tiêu chính:
 
-Dự án thể hiện khả năng làm việc với **dữ liệu thô → xử lý → lưu trữ → phân tích → trực quan hóa → rút ra insight** theo quy trình chuyên nghiệp.
+* Phân tích thói quen vận động trong 5 năm
+* Lấy **Step Count** làm biến trung tâm
+* Phân tích mối quan hệ giữa:
 
-## 📁 Dataset (Bộ Dữ Liệu)
-
-**Nguồn dữ liệu:**
-
-* Apple Health / Smart Band (xuất file XML)
-* Thời gian thu thập: 07/2025 – 08/2025
-* Dữ liệu ghi nhận liên tục ngày và đêm
-
-**Các chỉ số chính:**
-
-| Thuộc tính             | Mô tả               |
-| ---------------------- | ------------------- |
-| StepCount              | Số bước đi          |
-| HeartRate              | Nhịp tim (BPM)      |
-| RestingHeartRate       | Nhịp tim nghỉ       |
-| DistanceWalkingRunning | Quãng đường         |
-| ActiveEnergyBurned     | Lượng calo tiêu hao |
-| FlightsClimbed         | Số tầng leo         |
-| StartDate / EndDate    | Thời gian ghi nhận  |
-| Device / Source        | Nguồn thiết bị      |
-
-Dữ liệu ban đầu ở định dạng **XML**, sau đó được chuyển đổi sang **CSV** để xử lý.
+  * Vận động và Resting Heart Rate (RHR)
+  * Vận động và Active Energy Burned
+  * Vận động và giấc ngủ
+  * Ngày thường và cuối tuần
+* Đánh giá xu hướng cải thiện thể lực theo thời gian
 
 ---
 
-## 🛠 Công Cụ Sử Dụng
+## 📁 2. Dataset
 
-* **RStudio** → Làm sạch & tiền xử lý dữ liệu
-* **MySQL Workbench** → Thiết kế database & truy vấn SQL
-* **Microsoft Excel** → Xây dựng Dashboard
-* **GitHub** → Lưu trữ và quản lý dự án
+### 🔹 Nguồn dữ liệu
 
-Kỹ năng thể hiện trong dự án:
+Dữ liệu được thu thập từ nhiều thiết bị cá nhân:
+
+* Huawei Smart Band 10 (tháng 7/2025 – đeo liên tục ngày & đêm)
+* iPhone 13 Pro Max
+* iPhone X
+
+📅 Thời gian dữ liệu: **01/2021 – 30/11/2025**
+
+Dữ liệu được export từ ứng dụng Apple Health dưới dạng:
+
+* File nén
+* File XML (raw data)
+
+---
+
+### 🔹 Quy mô dữ liệu
+
+* Tổng số dòng: **317,360 records**
+* Số cột chính: 8–9
+* Dữ liệu liên tục trong 5 năm
+* Nhiều thiết bị ghi nhận song song
+
+---
+
+### 🔹 Các biến chính
+
+| Biến                   | Ý nghĩa                     |
+| ---------------------- | --------------------------- |
+| StepCount              | Số bước đi (biến trung tâm) |
+| ActiveEnergyBurned     | Năng lượng tiêu hao (kcal)  |
+| HeartRate              | Nhịp tim                    |
+| RestingHeartRate       | Nhịp tim nghỉ               |
+| WalkingRunningDistance | Quãng đường                 |
+| SleepAnalysis          | Phân tích giấc ngủ          |
+
+Step Count được chọn làm biến trọng tâm vì:
+
+* Xuất hiện xuyên suốt 2021–2025
+* Có mặt trên tất cả thiết bị
+* Phản ánh trực tiếp mức độ vận động
+
+---
+
+## 🛠 3. Tools & Technologies
+
+| Công cụ | Vai trò                                             |
+| ------- | --------------------------------------------------- |
+| RStudio | Làm sạch dữ liệu, phân tích xu hướng, trực quan hóa |
+| MySQL   | Xử lý, chuẩn hóa, truy vấn dữ liệu                  |
+| Excel   | Pivot Table & Dashboard                             |
+| GitHub  | Lưu trữ & công khai dự án                           |
+
+Kỹ năng thể hiện:
 
 * Data Cleaning
-* Data Transformation
-* SQL (GROUP BY, JOIN, Aggregation, Date Filtering)
-* Phân tích chuỗi thời gian (Time-series)
-* Thiết kế Dashboard
-* Data Storytelling
+* SQL (JOIN, GROUP BY, Aggregation)
+* Time-series analysis
+* Correlation analysis
+* Dashboard design
+* Data storytelling
 
+---
 
-## 🔄 Quy Trình Thực Hiện (Steps)
+## 🔄 4. Project Steps
 
-### Bước 1 – Xác định câu hỏi phân tích
+### Bước 1 – Import & Cleaning (RStudio)
 
-Một số câu hỏi chính:
-
-* Trung bình mỗi ngày tôi đi bao nhiêu bước?
-* Ngày nào vận động nhiều nhất / ít nhất?
-* Cuối tuần có khác ngày thường không?
-* Có mối liên hệ giữa số bước và nhịp tim không?
-
-### Bước 2 – Trích xuất dữ liệu
-
-* Xuất file XML từ điện thoại
-* Chuyển đổi XML → CSV
-* Kiểm tra cấu trúc dữ liệu
-
-### Bước 3 – Làm sạch dữ liệu bằng R
-
-Thực hiện trong RStudio:
-
+* Đọc file XML bằng `xml2`
+* Trích xuất thẻ `<Record>`
+* Chuyển thành DataFrame
 * Chuẩn hóa định dạng ngày giờ
-* Lọc các thuộc tính cần thiết (Step, HeartRate,...)
-* Loại bỏ dữ liệu trùng lặp
-* Kiểm tra giá trị thiếu
-* Xuất file dữ liệu sạch
+* Gộp dữ liệu theo ngày (energy_daily, sleep_daily)
+* Phân tích mối quan hệ vận động – giấc ngủ
 
-### Bước 4 – Phân tích bằng MySQL
+---
 
-* Tạo database
-* Import dữ liệu đã làm sạch
-* Chuyển đổi kiểu dữ liệu sang DATETIME
-* Tổng hợp số bước theo ngày
-* Lọc dữ liệu cuối tuần
-* Xác định ngày vận động cao nhất & thấp nhất
-* Chuẩn bị dữ liệu để phân tích tương quan Step – Heart Rate
+### Bước 2 – Phân tích chuyên sâu bằng R
 
-Các thao tác SQL tiêu biểu:
+#### 🔹 Phát hiện “Ngưỡng vàng vận động”
 
-* GROUP BY theo ngày
-* Lọc step > 6000
+Dữ liệu cho thấy mối quan hệ giữa vận động và giấc ngủ có dạng **phi tuyến (inverted-U shape)**.
+
+* Mức 500–600 kcal/ngày → thời gian ngủ ổn định & tối ưu
+* Vận động quá thấp → giấc ngủ biến động mạnh
+* Vận động quá cao → không đảm bảo cải thiện giấc ngủ
+
+👉 Insight: Tối ưu sức khỏe không nằm ở “càng nhiều càng tốt” mà ở mức phù hợp với khả năng phục hồi.
+
+---
+
+### Bước 3 – Lưu trữ & Truy vấn bằng MySQL
+
+Thực hiện:
+
+* Import CSV vào database
+* Chuẩn hóa định dạng DATETIME
+* Xóa NULL
+* Cast kiểu dữ liệu số
+* Loại bỏ trùng lặp
+* Tạo bảng `health_cleaned`
+
+Các phân tích SQL chính:
+
 * So sánh Weekend vs Weekday
-* Truy vấn tổng hợp
+* Ngày vận động nhiều nhất & ít nhất
+* Số ngày đạt trên 8,000 bước
+* JOIN StepCount & RestingHeartRate
 
-## 📊 Dashboard
+📌 Phát hiện:
 
-Dashboard Excel bao gồm:
+* 30 ngày đạt trên 8,000 bước
+* Ngày cao nhất: 27/07/2025 – 19,109 bước
+* Trong ngày vận động cao → RHR vẫn thấp và ổn định
+* Không có dấu hiệu quá tải tim mạch
 
-✔ Tổng số bước
-✔ Trung bình bước/ngày
-✔ Ngày hoạt động nhiều nhất
-✔ Ngày hoạt động ít nhất
-✔ Biểu đồ xu hướng số bước
-✔ Biểu đồ nhịp tim
-✔ So sánh cuối tuần – ngày thường
+---
 
-Dashboard được thiết kế theo hướng:
+## 📊 5. Dashboard (Excel)
 
-* Trình bày KPI rõ ràng
-* Dễ đọc với nhà quản lý
-* Tập trung vào insight thay vì chỉ hiển thị biểu đồ
+Dashboard tổng hợp phân tích giai đoạn 2021–2025:
+
+### 🔹 Long-term Performance
+
+* 2021: 162 km
+* 2025: 1,038 km
+* Tăng trưởng: +640%
+
+👉 Cho thấy sự thay đổi mạnh về lối sống theo hướng tích cực.
+
+---
+
+### 🔹 Seasonality (Xu hướng theo tháng)
+
+* Đỉnh điểm: Tháng 7 (trên 200 km)
+* Thấp điểm: Tháng 2, 5, 6
+
+👉 Cần cải thiện tính ổn định giữa các quý.
+
+---
+
+### 🔹 Weekly Distribution
+
+* Phân bổ vận động đều trong tuần
+* Không có xu hướng “tập bù” cuối tuần
+* Vận động chủ yếu đến từ di chuyển hằng ngày
+
+---
+
+### 🔹 Daily Intensity
+
+* Trung bình 2–4 km/ngày
+* Có nhiều ngày vượt 5–6 km
+* Kỷ lục: 16 km (27/07/2025)
+
+---
+
+## 📈 6. Results & Key Insights
+
+### ✅ Thành tựu
+
+* Tổng quãng đường 5 năm: **2,626 km**
+* Tăng trưởng vận động 640%
+* Duy trì nhiều ngày đạt chuẩn khuyến nghị (>8,000 steps)
+
+### ✅ Insight chuyên môn
+
+* Vận động cao không làm tăng nhịp tim nghỉ
+* Mối quan hệ vận động – giấc ngủ là phi tuyến
+* Tháng 7 là giai đoạn thể lực tối ưu
+* Tính ổn định quan trọng hơn các ngày đạt đỉnh
+
+---
+
+## 🚀 Business Thinking & Recommendations
+
+1. Duy trì mục tiêu 1,200 km cho năm 2026
+2. Cải thiện các tháng thấp điểm
+3. Theo dõi thêm chỉ số Aerobic Threshold để tối ưu hiệu suất
+4. Tập trung vào tính bền vững dài hạn thay vì đột biến ngắn hạn
 
 
-## 📈 Kết Quả & Insight
 
-Một số phát hiện chính:
-
-* Số bước dao động đáng kể giữa các ngày
-* Cuối tuần có xu hướng vận động khác ngày thường
-* Những ngày có số bước cao thường đi kèm nhịp tim tăng
-* Tính ổn định trong vận động quan trọng hơn các ngày “đột biến”
-
-Dự án chứng minh khả năng:
-
-* Xử lý dữ liệu thô
-* Thiết kế & quản lý database
-* Viết truy vấn SQL
-* Phân tích dữ liệu thực tế
-* Chuyển dữ liệu thành insight có giá trị
-* Trình bày kết quả theo phong cách business
-
-## 🚀 Ý Nghĩa Dự Án
-
-Đây không chỉ là dự án theo dõi sức khỏe cá nhân.
-
-Đây là một **case study Data Analyst hoàn chỉnh**, mô phỏng đúng quy trình làm việc trong doanh nghiệp:
-
-Dữ liệu thô → Làm sạch → Database → Truy vấn → Trực quan hóa → Insight
-
-Dự án thể hiện khả năng làm việc độc lập và tư duy phân tích toàn diện.
-
-## 👤 Tác Giả
-
-**Tùng Bùi**
-Data Analyst (Intern)
-Kỹ năng trọng tâm: SQL • Data Cleaning • Dashboard • Analytics Workflow
 
 
