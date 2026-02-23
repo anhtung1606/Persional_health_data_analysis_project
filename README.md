@@ -2,7 +2,7 @@
 
 ## 🧭 Tổng Quan (Overview)
 
-<img width="488" height="420" alt="Ảnh màn hình 2026-02-15 lúc 17 59 27" src="https://github.com/user-attachments/assets/59fa818f-946f-44fc-87d2-0264b341903f" />
+<img width="507" height="409" alt="Ảnh màn hình 2026-02-15 lúc 18 05 01" src="https://github.com/user-attachments/assets/0098e5b1-cb39-4d8a-aadc-2c9bd7ee24c8" />
 
 
 Đây là dự án phân tích dữ liệu sức khỏe cá nhân được thu thập từ điện thoại và thiết bị đeo thông minh.
