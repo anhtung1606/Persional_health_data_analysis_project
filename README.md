@@ -1,9 +1,8 @@
 **📄 Xem file PDF tại đây:  
 [PERSONAL HEALTH DATA ANALYSIS PROJECT](./PERSONAL%20HEALTH%20DATA%20ANALYSIS%20PROJECT%20.pdf)**
+* [📥 Tải xuống báo cáo PDF đầy đủ (Full Report)](./PERSONAL%20HEALTH%20DATA%20ANALYSIS%20PROJECT.pdf)
 
-[📥 Tải xuống báo cáo PDF đầy đủ tại đây](./PERSONAL_HEALTH_DATA_ANALYSIS_PROJECT.pdf)
 # Dự Án Phân Tích Dữ Liệu Sức Khỏe Cá Nhân
-
 ##  1 Tổng Quan Dự Án 
 
 <img width="507" height="409" alt="Ảnh màn hình 2026-02-15 lúc 18 05 01" src="https://github.com/user-attachments/assets/0098e5b1-cb39-4d8a-aadc-2c9bd7ee24c8" />
