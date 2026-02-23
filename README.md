@@ -1,6 +1,6 @@
 **📄 Xem file PDF tại đây:  
 [PERSONAL HEALTH DATA ANALYSIS PROJECT](./PERSONAL%20HEALTH%20DATA%20ANALYSIS%20PROJECT%20.pdf)**
-# 📊 Dự Án Phân Tích Dữ Liệu Sức Khỏe Cá Nhân
+# Dự Án Phân Tích Dữ Liệu Sức Khỏe Cá Nhân
 
 ##  1 Tổng Quan Dự Án 
 
@@ -31,9 +31,9 @@ Mục tiêu chính:
 * Đánh giá thói quen vận động từ đó đưa ra đề xuất phù hợp  với cá nhân cụ thể
 ---
 
-## 📁 2. Dataset
+## 2. Dataset
 
-### 🔹 Nguồn dữ liệu
+### Nguồn dữ liệu
 
 Dữ liệu được thu thập từ nhiều thiết bị cá nhân:
 
@@ -63,15 +63,9 @@ Dữ liệu được export từ ứng dụng Apple Health dưới dạng: File 
 | WalkingRunningDistance | Quãng đường                 |
 | SleepAnalysis          | Phân tích giấc ngủ          |
 
-Step Count được chọn làm biến trọng tâm vì:
-
-* Xuất hiện xuyên suốt 2021–2025
-* Có mặt trên tất cả thiết bị
-* Phản ánh trực tiếp mức độ vận động
-
 ---
 
-## 🛠 3. Công cụ sử dụng trong dự án
+## 3. Công cụ sử dụng trong dự án
 | Công cụ | Vai trò                                             |
 | ------- | --------------------------------------------------- |
 | RStudio | Làm sạch dữ liệu, phân tích xu hướng, trực quan hóa |
@@ -81,7 +75,7 @@ Step Count được chọn làm biến trọng tâm vì:
 
 ---
 
-## 4. Project Steps
+## 4. Quy trình chính trong Project
 
 ### Bước 1 – Import & Cleaning (RStudio)
 
@@ -131,7 +125,7 @@ Các phân tích SQL chính:
 
 ---
 
-## 📊 5. Dashboard (Excel)
+## 5. Dashboard (Excel)
 
 Dashboard tổng hợp phân tích giai đoạn 2021–2025:
 
@@ -149,32 +143,40 @@ Dashboard tổng hợp phân tích giai đoạn 2021–2025:
 
  Cần cải thiện tính ổn định giữa các quý.
 
-### Weekly Distribution
-
-* Phân bổ vận động đều trong tuần
-* Không có xu hướng “tập bù” cuối tuần
-* Vận động chủ yếu đến từ di chuyển hằng ngày
-
-### Daily Intensity
+### Cường độ vận động hàng ngày 
 
 * Trung bình 2–4 km/ngày
 * Có nhiều ngày vượt 5–6 km
 * Kỷ lục: 16 km (27/07/2025)
 
 ## 6. Kết luận
+### 1. Xu hướng vận động dài hạn
 
-### Tổng kết
+* Sự tăng trưởng đột phá: Tổng quãng đường vận động tăng từ 162 km (2021) lên 1,038 km (2025), tương đương mức tăng trưởng 640%.
 
-* Vận động cao không làm tăng nhịp tim nghỉ
-* Mối quan hệ vận động – giấc ngủ là phi tuyến
-* Tháng 7 là giai đoạn thể lực tối ưu
-* Tính ổn định quan trọng hơn các ngày đạt đỉnh
+
+* Tính chu kỳ: Tháng 7 hàng năm thường là thời điểm vận động cao nhất (vượt mốc 200 km/tháng).
+
+* Thói quen hằng tuần: Hoạt động dàn trải đều qua các ngày trong tuần, cho thấy vận động chủ yếu đến từ việc di chuyển sinh hoạt thay vì tập luyện tập trung vào cuối tuần.
+
+### 2. Tương quan giữa Vận động và Giấc ngủ
+
+* Ngưỡng vận động tối ưu: Mối quan hệ giữa vận động và giấc ngủ có dạng phi tuyến (inverted-U shape).
+
+
+ * Phát hiện: Mức vận động vừa phải (khoảng 300 - 400 kcal/ngày) mang lại thời gian ngủ ổn định và tối ưu nhất. Vận động quá ít hoặc quá nhiều đều gây dao động lớn và không có lợi  cho chất lượng nghỉ ngơi.
+
+* 3. Sức khỏe tim mạch
+Trong những ngày vận động cường độ cao (trên 8,000 bước), nhịp tim nghỉ (RHR) vẫn duy trì ổn định ở mức thấp.
+
+Điều này chứng minh hệ tim mạch thích nghi tốt với cường độ vận động và cơ thể có khả năng phục hồi tích cực.
 
 ### Đề xuất
-1. Duy trì mục tiêu 1,200 km cho năm 2026
-2. Cải thiện các tháng thấp điểm
-3. Theo dõi thêm chỉ số Aerobic Threshold để tối ưu hiệu suất
-4. Tập trung vào tính bền vững dài hạn thay vì đột biến ngắn hạn
+
+* Duy trì tính ổn định: Cần cải thiện chỉ số ở các tháng thấp điểm (tháng 2, tháng 6) để đảm bảo sức bền lâu dài thay vì vận động dồn nén.
+
+* Mục tiêu 2026: Dựa trên đà tăng trưởng, đặt mục tiêu tổng quãng đường đạt 1,200 km cho năm tiếp theo.
+
 
 
 
