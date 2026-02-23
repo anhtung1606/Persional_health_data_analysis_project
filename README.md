@@ -1,3 +1,5 @@
+**📄 Xem file PDF tại đây:**  
+[PERSONAL HEALTH DATA ANALYSIS PROJECT](./PERSONAL%20HEALTH%20DATA%20ANALYSIS%20PROJECT%20.pdf)
 # 📊 Dự Án Phân Tích Dữ Liệu Sức Khỏe Cá Nhân
 
 ## 🧭 Tổng Quan (Overview)
