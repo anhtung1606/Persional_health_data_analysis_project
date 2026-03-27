@@ -125,7 +125,7 @@ Các phân tích SQL chính:
 
 ---
 
-## 5. Dashboard (Excel)
+## 5. Dashboard(Excel)
 
 Dashboard tổng hợp phân tích giai đoạn 2021–2025:
 
