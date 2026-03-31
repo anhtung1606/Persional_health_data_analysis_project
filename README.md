@@ -1,5 +1,5 @@
-**📄 Xem file PDF tại đây:  
-[PERSONAL HEALTH DATA ANALYSIS PROJECT](./PERSONAL%20HEALTH%20DATA%20ANALYSIS%20PROJECT%20.pdf)**
+**📄 Xem Website tại đây:  
+[PERSONAL HEALTH DATA ANALYSIS PROJECT](https://anhtung1606.github.io/health_project_web/)**
 
 # Dự Án Phân Tích Dữ Liệu Sức Khỏe Cá Nhân
 ##  1 Tổng Quan Dự Án 
